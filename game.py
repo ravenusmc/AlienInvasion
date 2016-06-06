@@ -18,7 +18,10 @@ def run_game():
   #Make a group to store bullets in. 
   bullets = Group()
   #make an alien.
-  alien = Alien(ai_settings, screen)
+  aliens = Group()
+
+  #Creating a fleet of aliens
+  gf.create_fleet(ai_settings, screen, aliens)
 
 
   #Start the main loop for the game.
@@ -27,7 +30,7 @@ def run_game():
     ship.update()
     gf.update_bullets(bullets)
     print(len(bullets))
-    gf.update_screen(ai_settings, screen, ship, alien, bullets)
+    gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 
 run_game()
