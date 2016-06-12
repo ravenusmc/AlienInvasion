@@ -79,7 +79,7 @@ def check_play_button(ai_settings, screen, stats, play_button, ship, aliens, bul
     stats.game_active = True 
 
 
-def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button):
+def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button):
     #Redraw the screen during each pass through the loop
     screen.fill(ai_settings.bg_color)
     #Redraw all bullets behind ship and aliens. 
@@ -87,6 +87,8 @@ def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button
       bullet.draw_bullet()
     ship.blitme()
     aliens.draw(screen)
+    #Draw the score information
+    sb.show_score()
 
     #Draws the play button if the game is inactive
     if not stats.game_active:
